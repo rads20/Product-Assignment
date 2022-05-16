@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Product testing">
+        <lightning-layout multiple-rows horizontal-align="center">
+        
+   
+        <template for:each={products} for:item="prd">
+            <lightning-layout-item key={prd.ID} padding="around-small" size="12">
+                  {prd.Name}
+            </lightning-layout-item>
+        </template>   
+    
+        
+    
+        
+                   
+        </lightning-layout>
+    </lightning-card>
+   
+    
+</template>

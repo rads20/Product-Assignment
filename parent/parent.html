@@ -1,0 +1,87 @@
+<template>
+    <lightning-card >
+        <lightning-layout>
+            <lightning-layout-item class="slds-p-left_small">
+                <lightning-icon icon-name="utility:trailhead" 
+                  size="large"></lightning-icon>
+            </lightning-layout-item>
+            <lightning-layout-item>
+                <p class="slds-p-horizontal_small">
+                    <b>SLDS COUNTER</b>
+                </p>
+            </lightning-layout-item>
+        </lightning-layout>
+        
+        <lightning-layout multiple-rows class="slds-m-around_xx-large">
+                <lightning-layout-item class="slds-size_1-of-4">
+                </lightning-layout-item>    
+                <lightning-layout-item class="slds-size_1-of-4 slds-box">
+                    <lightning-icon icon-name="utility:product_workspace" 
+                    size="small"></lightning-icon>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Paracetamol
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-size_1-of-4 slds-box">
+                    <c-custom-counter 
+                                qty-measure='Strips'
+                                ondecrement={quantityCtrl}
+                                onincrement={quantityCtrl}>
+                    </c-custom-counter>
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-size_1-of-4">
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-size_1-of-4">
+                </lightning-layout-item>  
+  
+                <lightning-layout-item class="slds-size_1-of-4 slds-box">
+                    <lightning-icon icon-name="utility:product_workspace" 
+                     size="small"></lightning-icon>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Hand Sanitizer
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-size_1-of-4 slds-box">
+                    <c-custom-counter
+                                qty-measure='Pieces'
+                                ondecrement={quantityCtrl}
+                                onincrement={quantityCtrl}>
+                    </c-custom-counter>
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-size_1-of-4">
+                </lightning-layout-item>
+
+                <lightning-layout-item class="slds-size_1-of-4">
+                </lightning-layout-item>    
+                <lightning-layout-item class="slds-size_1-of-4 slds-box">
+                    <lightning-icon icon-name="utility:product_workspace" 
+                     size="small"></lightning-icon>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Water Bottle
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-size_1-of-4 slds-box">
+                    <c-custom-counter 
+                                qty-measure='Litres'
+                                ondecrement={quantityCtrl}
+                                onincrement={quantityCtrl}>
+                    </c-custom-counter>
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-size_1-of-4">
+                </lightning-layout-item>    
+
+                <lightning-layout-item class="slds-size_1-of-4">
+                </lightning-layout-item>    
+                <lightning-layout-item class="slds-size_1-of-4 slds-box">
+                    <lightning-icon icon-name="utility:product_workspace" 
+                     size="small"></lightning-icon>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Sugar
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-size_1-of-4 slds-box">
+                    <c-custom-counter 
+                                qty-measure='Kilograms'
+                                ondecrement={quantityCtrl}
+                                onincrement={quantityCtrl}>
+                    </c-custom-counter>
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-size_1-of-4">
+                </lightning-layout-item>    
+        </lightning-layout>
+
+   </lightning-card>
+        
+</template>

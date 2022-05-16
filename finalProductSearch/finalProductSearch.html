@@ -1,0 +1,109 @@
+<template>
+    <lightning-card title="Order Details">
+        <!--To Display Pricebook Records-->
+        <div>
+            <lightning-combobox
+                name="priceBook"
+                label="Select Price Book"
+                value=""
+                options={pbOptions}
+                onchange={pbOnChange}
+                placeholder="Select Pricebook"
+                required
+        ></lightning-combobox>
+        </div>
+
+        <div>
+            <br>
+        </div>
+        
+          <!-- To display products -->
+    <template if:true={displayProd}>
+        <!-- To search Products -->
+        <lightning-input type="text" label="Search Products" onchange={searchProdcuts}></lightning-input>
+        <template if:true={showSpinner}>
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+        </template>
+        <div>
+            <br>
+        </div>
+        <div if:true={showProds} class="slds-grid slds-gutters">
+            <template if:false={showSpinner}>
+                <div class="slds-size_8-of-12">
+                    <div class="slds-grid slds-gutters slds-wrap slds-align_absolute-center">
+                        <template for:each={displayProd} for:item="prod">
+                            <div key={prod.Product2.Id} class="slds-col">
+                                <lightning-card variant="Narrow" title={prod.Product2.Name}>
+                                    <lightning-button-icon  icon-name="standard:webcart" variant="border-filled" 
+                                    alternative-text="Add to Card" slot="actions" onclick={addToCart} data-id={prod.Product2.Id} size="large">
+                                    </lightning-button-icon>
+                                    <div>
+                                        <img src={prod.Product2.Product_Image_Link__c} alt={prod.Product2.Name} width="100" height="100">
+                                    </div>
+                                    <div class="slds-align_absolute-center">
+                                        <lightning-formatted-number value={prod.UnitPrice} format-style="currency" currency-code="USD"></lightning-formatted-number>
+                                    </div>
+                                    
+                                </lightning-card>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </template>
+            <div class="slds-size_1-of-12 slds-gutters"></div>
+            <div if:true={showCart} class="slds-size_3-of-12 slds-grid slds-gutters">
+                <div class = "slds-box">
+                    <div class="slds-align_absolute-center">
+                        <lightning-button variant="brand" label="Place Order" title="Place Order" onclick={placeOrder}></lightning-button>
+                    </div>
+                    <div>
+                        <div class="slds-float_left slds-col">
+                            <div if:true={cartProds}>
+                                <p>Cart Items({cartProds.length})</p>
+                            </div>
+                            <div if:false={cartProds}>
+                                <p>Cart Items(0)</p>
+                            </div>
+                        </div>
+                        <div class="slds-float_right slds-col">
+                            <p>Total: {total}</p>
+                        </div>
+                        <div class="slds-col"></div>
+                        <div>
+                            <br> <br>
+                        </div>
+                        <template for:each={cartProds} for:item="prod">
+                            <div key={prod.Product2.Id} class="slds-col">
+                                <lightning-card variant="Narrow" title={prod.Product2.Name}>
+                                    <lightning-button-icon  icon-name="action:delete" variant="border-filled" 
+                                        alternative-text="Add to Card" slot="actions" onclick={deleteFromCart} data-id={prod.Product2.Id} size="large">
+                                    </lightning-button-icon>
+                                    <div>
+                                        <div class="slds-col">
+                                            <lightning-formatted-number value={prod.UnitPrice} format-style="currency" currency-code="USD"></lightning-formatted-number>
+                                        </div>
+                                        <div class="slds-col">
+                                            <lightning-input type="number" name="Quantity" label="Quantity" value={prod.Quantity} onchange={updateQuantity} data-id={prod.Product2.Id}></lightning-input>
+                                        </div>
+                                    </div>
+                                </lightning-card>
+                                <div><br></div>
+                            </div>
+                        </template>
+                    </div>
+                    
+                </div>
+               
+            </div>
+        </div>
+        <div>
+            <br>
+        </div>
+        <div if:false={showProds} class="slds-align_absolute-center slds-notify slds-notify_alert slds-alert_warning"> 
+            !! No Products found. Please search again. !!
+        </div>
+    </template>
+
+</lightning-card>
+    
+</template>

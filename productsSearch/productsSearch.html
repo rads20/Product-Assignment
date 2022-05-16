@@ -1,0 +1,49 @@
+<template>
+    <lightning-card title="Search your product">
+        <c-select-price-book onselectpricebook={priceBookSelectHandler}></c-select-price-book>
+    </lightning-card>
+  
+  
+<lightning-card title="Product">
+    <lightning-layout multiple-rows horizontal-align="center">   
+    <template for:each={products} for:item="prd">
+        <lightning-layout-item key={prd.ID} padding="around-small" size="12">
+             <br>
+ <!-- Testing for tile-->    <br>
+            <div class="slds-p-around_medium lgc-bg">
+                <lightning-tile label={prd.Name}>                    
+                    <dl class="slds-dl_horizontal">
+                        <dt class="slds-dl_horizontal__label">
+                            <p class="slds-truncate" title="Price">Price:</p>
+                        </dt>
+                        <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                            <p class="slds-truncate" title="Description">{prd.Price__c}</p>
+                        </dd>
+                        <dt class="slds-dl_horizontal__label">
+                            <p class="slds-truncate" title="Email">Description:</p>
+                        </dt>
+                        <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                            <p class="slds-truncate" title="salesforce-ux@salesforce.com">{prd.Description}</p>
+                        </dd>
+                        <dt class="slds-dl_horizontal__label">
+                            <p class="slds-truncate" title="Email">Add to cart:</p>
+                        </dt>
+                        <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                            <p class="slds-truncate" title="salesforce-ux@salesforce.com">
+                                <lightning-button-icon  icon-name="standard:webcart" variant="border-filled" 
+                                    alternative-text="Add to Card" slot="actions" size="large">
+                                    </lightning-button-icon>
+
+                            </p>
+                        </dd>
+                    </dl>
+                </lightning-tile>
+            </div>
+        
+            
+        </lightning-layout-item>
+    </template>                
+    </lightning-layout>
+</lightning-card>
+
+</template>

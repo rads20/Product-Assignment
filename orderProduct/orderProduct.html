@@ -1,0 +1,21 @@
+<template>
+    <lightning-card>
+        <lightning-layout multiple-rows>
+          <lightning-layout-item>
+              <lightning-tabset active-tab-value={selectedTabValue}>
+
+                  <lightning-tab label="Order Details" value='orderDetailsTab' onactive={changeHandler}>
+                  </lightning-tab>
+
+                  <lightning-tab label="Add Review" value='addReviewTab' onactive={changeHandler}>
+                </lightning-tab>
+
+                <lightning-tab label="View Review" value='viewReviewTab' onactive={changeHandler}>
+                </lightning-tab>
+
+              </lightning-tabset>
+          </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+    
+</template>
